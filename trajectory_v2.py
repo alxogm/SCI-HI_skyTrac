@@ -1,3 +1,6 @@
+#Este código hace transfomaciones de coordenasdas geograficas a coordenadas galacticas
+#y las projecta sobre el plano galactico usando healpy
+
 import numpy as np
 import datetime
 from sidereal import *
@@ -7,9 +10,13 @@ import seaborn as sb
 from Transformations import *
 sb.set_style('white')
 rad = np.pi/180.
+
+#aqui se definen las horas de obsrvacion y en cuantos intervalos de tiempo (min)
+#se esta integrando.
 n_H = 24
 delta = 10.
 
+#estas son las longitu y latitud de Isla Guadalupe
 glon = -118.3011 * rad
 glat = 28.9733 * rad
 
@@ -38,7 +45,8 @@ for i in range(len(H)):
     dec[i] = glat/rad
 RA = np.transpose(RA)
 """
-
+# aqui se usa healpy para transformar de coordenadas galacticas a coordenadas
+# ecuatoriales.
 r = hp.Rotator(coord=['G','C'], deg=False)
 theta_c, phi_c = r(gal_coords[1,:]*rad, gal_coords[0,:]*rad)
 np.savetxt('cosa_d.txt',np.array([theta_c,phi_c]).T)

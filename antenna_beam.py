@@ -9,7 +9,7 @@ sb.set_style('white')
 rad = np.pi/180.
 
 #antenna pattern
-direct = '/Users/Oleg/Documents/SCI-Bayes/antenna_beam/'
+#direct = '/Users/Oleg/Documents/SCI-Bayes/antenna_beam/'
 data = np.loadtxt('70MHz.txt')
 
 #this data is in the ISO coordinate system

@@ -8,4 +8,7 @@ como los paquetes:
 
 -Seaborn (opcional paro tendrias que quitarlo del codigo)
 
--Healpy 
+-Healpy
+
+Para generar el ejecutable de gsm.f90 solo corre:
+$gfortran -fPIC -shared -o gsm.so  gsm.f90 
